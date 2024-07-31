@@ -1,8 +1,21 @@
 import { useState } from "react";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 const Client = () => {
     const [success, setSuccess] = useState(false);
+
+
+    const notify = () => {
+        toast.success('Successfully toasted!')
+
+    };
+    const falseNotify = () => {
+        toast.error("This didn't work.")
+
+    };
+
     const handleClient = e => {
         e.preventDefault();
         const form = e.target;
@@ -29,6 +42,7 @@ const Client = () => {
                 .then(data => {
                     console.log(data)
                     setSuccess(data.success)
+                    success ? notify() : falseNotify()
                 })
         }
 
@@ -77,18 +91,12 @@ const Client = () => {
             {/* toast for success  */}
 
             {
-                !success ? <></> :
-                    toast.success('🦄 Wow so easy!', {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                        transition: Bounce,
-                    })
+                <div>
+                    <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                    />
+                </div>
             }
 
 
