@@ -1,10 +1,8 @@
-import { useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 
 
 const Client = () => {
-    const [success, setSuccess] = useState(false);
 
 
     const notify = () => {
@@ -41,8 +39,7 @@ const Client = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    setSuccess(data.success)
-                    success ? notify() : falseNotify()
+                    data.success ? notify() : falseNotify()
                 })
         }
 
