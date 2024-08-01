@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Navigate, useLoaderData } from "react-router-dom";
 
 const ShowClients = () => {
     const users = useLoaderData().data;
+    const [clients, setClients] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:3001/client')
+            .then(res => res.json())
+            .then(data => setClients(data))
+    }, [clients])
     // need some work for modifi success delete toaster
     // use useEffect ==> to add dependencies ==> if data delete update the screen
 
@@ -63,11 +70,15 @@ const ShowClients = () => {
                 console.log(data)
                 data.success ? notify() : falseNotify(data)
             })
+        // const remainClient = clients.filter(client => client.id !== id)
+        // console.log(remainClient);
+        // working on filter deleted data 
+        
     }
 
     return (
         <div>
-            <h3>Hello from show all clients {users.length}</h3>
+            <h3>Hello from show all clients</h3>
             {
                 <Toaster
                     position="top-center"

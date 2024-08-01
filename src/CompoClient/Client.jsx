@@ -5,12 +5,12 @@ import toast, { Toaster } from 'react-hot-toast';
 const Client = () => {
 
 
-    const notify = () => {
-        toast.success('Successfully toasted!')
+    const notify = (message) => {
+        toast.success(`${message}`)
 
     };
-    const falseNotify = () => {
-        toast.error("This didn't work.")
+    const falseNotify = (message) => {
+        toast.error(`${message}`)
 
     };
 
@@ -39,7 +39,7 @@ const Client = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    data.success ? notify() : falseNotify()
+                    data.success ? notify(data.message) : falseNotify(data.message)
                 })
         }
 
