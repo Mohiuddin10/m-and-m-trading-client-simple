@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { Navigate, useLoaderData } from "react-router-dom";
+
 
 const ShowClients = () => {
-    const users = useLoaderData().data;
     const [clients, setClients] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:3001/client')
-            .then(res => res.json())
-            .then(data => setClients(data))
-    }, [clients])
-    // need some work for modifi success delete toaster
-    // use useEffect ==> to add dependencies ==> if data delete update the screen
 
-    const notify = () => {
+    useEffect(() => {
+        fetch("http://localhost:3001/client")
+            .then(res => res.json())
+            .then(data => setClients(data.data))
+    }, [])
+    console.log(clients);
+
+    const notify = (data) => {
         toast.custom((t) => (
             <div
                 className={`${t.visible ? 'animate-enter' : 'animate-leave'
@@ -24,16 +23,13 @@ const ShowClients = () => {
                         <div className="flex-shrink-0 pt-0.5">
                             <img
                                 className="h-10 w-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=6GHAjsWpt9&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                                src="../../public/icons8-bin.gif"
                                 alt=""
                             />
                         </div>
-                        <div className="ml-3 flex-1">
+                        <div className="ml-3 my-auto flex-1">
                             <p className="text-sm font-medium text-gray-900">
-                                Emilia Gates
-                            </p>
-                            <p className="mt-1 text-sm text-gray-500">
-                                Sure! 8:30pm works great!
+                                {data.message}
                             </p>
                         </div>
                     </div>
@@ -43,7 +39,11 @@ const ShowClients = () => {
                         onClick={() => toast.dismiss(t.id)}
                         className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
-                        Close
+                        <img
+                                className="h-10 w-10 rounded-full"
+                                src="../../public/icons8-close.gif"
+                                alt=""
+                            />
                     </button>
                 </div>
             </div>
@@ -58,7 +58,6 @@ const ShowClients = () => {
 
     const handleUpdate = (id) => {
         console.log(id);
-        Navigate("/client")
     }
 
     const handleDelete = (id) => {
@@ -68,13 +67,15 @@ const ShowClients = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                data.success ? notify() : falseNotify(data)
+                data.success ? notify(data) : falseNotify(data)
+                const updateClients = clients.filter((client) => client._id != id)
+                setClients(updateClients);
             })
-        // const remainClient = clients.filter(client => client.id !== id)
-        // console.log(remainClient);
-        // working on filter deleted data 
-        
+       
+
     }
+
+
 
     return (
         <div>
@@ -101,15 +102,15 @@ const ShowClients = () => {
                         {/* row 1 */}
 
                         {
-                            users.map((user) =>
-                                <tr key={user._id}>
-                                    <th>{users.indexOf(user) + 1}</th>
-                                    <td>{user.name}</td>
-                                    <td>{user.address}</td>
-                                    <td>0{user.phone}</td>
+                            clients.map((client) =>
+                                <tr key={client._id}>
+                                    <th>{clients.indexOf(client) + 1}</th>
+                                    <td>{client.name}</td>
+                                    <td>{client.address}</td>
+                                    <td>0{client.phone}</td>
                                     <td className="">
-                                        <button onClick={() => handleUpdate(user._id)} className="me-4 btn btn-primary">Update</button>
-                                        <button onClick={() => handleDelete(user._id)} className="btn btn-warning">Delete</button>
+                                        <button onClick={() => handleUpdate(client._id)} className="me-4 btn btn-primary">Update</button>
+                                        <button onClick={() => handleDelete(client._id)} className="btn btn-warning">Delete</button>
                                     </td>
                                 </tr>)
                         }

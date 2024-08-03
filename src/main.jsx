@@ -26,8 +26,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/showClients",
-        element: <ShowClients></ShowClients>,
-        loader: () => fetch("http://localhost:3001/client")
+        element: <ShowClients></ShowClients>
+        // loader: () => fetch("http://localhost:3001/client")
       },
       {
         path: "/truckChalan",
