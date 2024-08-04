@@ -60,7 +60,7 @@ const ShowClients = () => {
 
     const handleUpdate = (id) => {
         console.log(id);
-        navigate('/UpdateClient', {state: {data: id}});
+        navigate(`/UpdateClient/${id}`, {state: {data: id}});
     }
 
     const handleDelete = (id) => {

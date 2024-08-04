@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         // loader: () => fetch("http://localhost:3001/client")
       },
       {
-        path: "/UpdateClient",
+        path: "/UpdateClient/:id",
         element: <UpdateClient></UpdateClient>
       },
       {

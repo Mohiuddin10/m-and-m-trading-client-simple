@@ -1,23 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const UpdateClient = () => {
-    const location = useLocation();
-    const { state } = location;
-    const id = state?.data;
-    console.log(id);
-
-    let currentClient;
+    const [client, setClient] = useState([]);
+    const params = useParams();
     useEffect(() => {
-        fetch(`http://localhost:3001/client/${id}`)
-        .then( res => res.json())
-        .then(data => currentClient(data))
-    },[])
-
-    const {address, name, phone} = currentClient.data;
-    console.log(address, phone, name);
-
+        fetch(`http://localhost:3001/client/${params.id}`)
+            .then(res => res.json())
+            .then(data => setClient(data.data))
+    }, [])
+    const {name, address, phone} = client;
     const notify = (message) => {
         toast.custom((t) => (
             <div
@@ -29,7 +22,7 @@ const UpdateClient = () => {
                         <div className="flex-shrink-0 pt-0.5">
                             <img
                                 className="h-10 w-10 rounded-full"
-                                src="../../public/icons8-success.gif"
+                                src="../../public/icons8-update.gif"
                                 alt=""
                             />
                         </div>
@@ -94,8 +87,8 @@ const UpdateClient = () => {
         ))
 
     };
-
-    const handleClient = e => {
+   
+    const handleUpdateClient = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -110,8 +103,9 @@ const UpdateClient = () => {
                 address: address,
                 phone: phone
             };
-            fetch("http://localhost:3001/client", {
-                method: "POST",
+            console.log(newClient);
+            fetch(`http://localhost:3001/client/${client._id}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -132,12 +126,12 @@ const UpdateClient = () => {
                     <h1 className="text-xl md:text-5xl font-bold">Update client</h1>
                 </div>
                 <div className="card md:shrink-0 md:w-full md:max-w-sm md:shadow-2xl bg-base-100">
-                    <form onSubmit={handleClient} className="">
+                    <form onSubmit={handleUpdateClient} className="">
                         {/* Client Name */}
                         <div className="form-control">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Client Name:
-                                <input type="text" name="name" className="grow" placeholder="M & M Trading" />
+                                <input type="text" name="name" className="grow" defaultValue={name}/>
                             </label>
                         </div>
 
@@ -145,7 +139,7 @@ const UpdateClient = () => {
                         <div className="form-control">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Address:
-                                <input type="text" name="address" className="grow" placeholder="172, Khatungonj. Chattogram" />
+                                <input type="text" name="address" className="grow" defaultValue={address} />
                             </label>
                         </div>
 
@@ -153,13 +147,13 @@ const UpdateClient = () => {
                         <div className="form-control">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Phone: +880
-                                <input type="tel" name="phone" className="grow" placeholder="1711******" />
+                                <input type="tel" name="phone" className="grow" defaultValue={phone} />
                             </label>
                         </div>
 
                         {/* submit  */}
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Record Client</button>
+                            <button className="btn btn-primary">Update Record</button>
                         </div>
 
                     </form>
