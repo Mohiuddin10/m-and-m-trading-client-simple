@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import toast, { Toaster } from "react-hot-toast";
 
 
 const ShowClients = () => {
     const [clients, setClients] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("http://localhost:3001/client")
@@ -58,6 +60,7 @@ const ShowClients = () => {
 
     const handleUpdate = (id) => {
         console.log(id);
+        navigate('/UpdateClient', {state: {data: id}});
     }
 
     const handleDelete = (id) => {
