@@ -1,11 +1,4 @@
-// 1. working on client entry toaster ====> DONE
-// 2. create actions for update and delete client
-//              ==> word to customise the success message and false message
-///             ===> use useEffect
-// 3. show toast message after update and delete
-// 4. 
-
-
-
-
-// note: working on showclients line 76 
+/// Start work on Truck chalan
+// ====> Working on Show Trucks=====> Going
+// 1. Work on client Load
+// 2. Data send to server and save on DB

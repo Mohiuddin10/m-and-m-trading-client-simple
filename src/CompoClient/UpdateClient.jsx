@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const UpdateClient = () => {
+    const navigate = useNavigate();
     const [client, setClient] = useState([]);
     const params = useParams();
     useEffect(() => {
@@ -88,7 +90,7 @@ const UpdateClient = () => {
 
     };
    
-    const handleUpdateClient = (e) => {
+    const handleUpdateClient = async (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -104,7 +106,7 @@ const UpdateClient = () => {
                 phone: phone
             };
             console.log(newClient);
-            fetch(`http://localhost:3001/client/${client._id}`, {
+            await fetch(`http://localhost:3001/client/${client._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -117,6 +119,7 @@ const UpdateClient = () => {
                     data.success ? notify(data.message) : falseNotify(data.message)
                 })
         }
+        navigate(`/showClients`);
 
     }
     return (
