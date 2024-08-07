@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const TruckChalan = () => {
+
+    const navigate = useNavigate()
+
     // Working on load Clients 
     const [client, setClient] = useState([])
     useEffect(() => {
@@ -50,6 +54,7 @@ const TruckChalan = () => {
             .then(data => {
                 console.log(data)
                 // data.success ? notify(data.message) : falseNotify(data.message)
+                navigate(`/finalChalan/${data.data._id}`)
             })
     }
     return (
