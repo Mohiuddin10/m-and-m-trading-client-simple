@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         element: <TruckChalan></TruckChalan>
       },
       {
-        path: "/finalChalan/id",
+        path: "/finalChalan/:id",
         element: <FinalTruckChalan></FinalTruckChalan>
       }
     ]
