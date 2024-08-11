@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 const FinalTruckChalan = () => {
     const params = useParams();
+    console.log(params.id);
     const [truckData, setTruckData] = useState({})
     useEffect(() => {
         fetch(`http://localhost:3001/truck/${params.id}`)
@@ -16,7 +17,15 @@ const FinalTruckChalan = () => {
     console.log(truckData);
     const {clientName, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance} = truckData;
     const truckDriverData = {truckNumber, driverName, driverPhone};
-    const product = {itemName, weight, fare, netFare, bags, advance}
+    const product = {itemName, weight, fare, netFare, bags, advance};
+
+    const [client, setClient] = useState({});
+    console.log(clientName);
+    useEffect(() => {
+        fetch(`http://localhost:3001/client/${clientName}`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    },[])
     return (
         <div>
             {/* header  */}
