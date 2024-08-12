@@ -29,9 +29,12 @@ const TruckChalan = () => {
         const advance = form.advance.value;
         const comment = form.comment.value;
 
+
+        // track ClientID 
+        const clientID = client.find(singleClient => singleClient.name == clientName);
         const newTruckRecpt = {
             clientName: clientName,
-            clientID: client._id,
+            clientID: clientID,
             truckNumber: truckNumber,
             driverName: driverName,
             driverPhone: driverPhone,
@@ -76,7 +79,8 @@ const TruckChalan = () => {
                                 <select name="clientName" className="select w-full max-w-xs">
                                     <option disabled selected>Client Name</option>
                                     {
-                                        client.map(singleClient => <option key={singleClient._id}>{singleClient.name}
+                                        client.map(singleClient => <option key={singleClient._id}
+                                        >{singleClient.name}
                                         </option>
                                         )
                                     }
