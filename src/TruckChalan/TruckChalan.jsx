@@ -12,7 +12,7 @@ const TruckChalan = () => {
             .then(res => res.json())
             .then(data => setClient(data.data))
     }, [])
-    console.log(client.name);
+    console.log(client._id);
     // End of Load Clients
     const handletruckEntry = e => {
         e.preventDefault();
@@ -31,6 +31,7 @@ const TruckChalan = () => {
 
         const newTruckRecpt = {
             clientName: clientName,
+            clientID: client._id,
             truckNumber: truckNumber,
             driverName: driverName,
             driverPhone: driverPhone,
@@ -75,7 +76,9 @@ const TruckChalan = () => {
                                 <select name="clientName" className="select w-full max-w-xs">
                                     <option disabled selected>Client Name</option>
                                     {
-                                        client.map(singleClient => <option key={singleClient._id}>{singleClient.name}</option>)
+                                        client.map(singleClient => <option key={singleClient._id}>{singleClient.name}
+                                        </option>
+                                        )
                                     }
                                 </select>
                             </div>
