@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Description from "./Description";
 import Party from "./Party";
 import TruckDetails from "./TruckDetails";
@@ -8,20 +8,15 @@ import { useEffect, useState } from "react";
 
 const FinalTruckChalan = () => {
     const truckID = useParams().id;
-    const truckUrl = `http://localhost:3001/truck/${truckID}`
-    const [truckData, setTruckData] = useState({});
-    console.log(truckUrl);
+    const truckData = useLoaderData().data;
+    console.log(truckData);
+    
 
-    useEffect(() => {
-        fetch(truckUrl)
-            .then(res => res.json())
-            .then(data => setTruckData(data.data))
-    }, [])
 
     const { clientID, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance } = truckData;
     const truckDriverData = { truckNumber, driverName, driverPhone };
     const product = { itemName, weight, fare, netFare, bags, advance };
-    console.log(truckData);
+    console.log(clientID);
     return (
         <div>
             {/* header  */}

@@ -40,7 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/finalChalan/:id",
-        element: <FinalTruckChalan></FinalTruckChalan>
+        element: <FinalTruckChalan></FinalTruckChalan>,
+        loader: async ({params})=> {return fetch(`http://localhost:3001/truck/${params.id}`)}
       }
     ]
   },

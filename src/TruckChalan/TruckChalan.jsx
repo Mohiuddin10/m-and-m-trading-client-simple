@@ -34,7 +34,7 @@ const TruckChalan = () => {
         const clientID = client.find(singleClient => singleClient.name == clientName);
         const newTruckRecpt = {
             clientName: clientName,
-            clientID: clientID,
+            clientID: clientID._id,
             truckNumber: truckNumber,
             driverName: driverName,
             driverPhone: driverPhone,
