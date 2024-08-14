@@ -13,7 +13,7 @@ const FinalTruckChalan = () => {
     
 
 
-    const { clientID, createdAt, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance } = truckData;
+    const { clientID, createdAt, comments, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance } = truckData;
     const truckDriverData = { truckNumber, driverName, driverPhone };
     const product = { itemName, weight, fare, netFare, bags, advance };
     const dateObject = new Date(createdAt);
@@ -39,6 +39,9 @@ const FinalTruckChalan = () => {
 
             {/* Description of products and Fare  */}
             <Description product={product} />
+            <div className="mx-6 my-5 border-2 rounded-md p-4">
+                <h2>Special Notes: {comments}</h2>
+            </div>
         </div>
     );
 };

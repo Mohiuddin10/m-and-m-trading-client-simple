@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 const Party = (params) => {
     const [ client, setClient] = useState({});
+    console.log(params);
     useEffect(() => {
-        console.log(`${name}`);
+        console.log(`${params.clientID}`);
         fetch(`http://localhost:3001/client/${params.clientID}`)
         .then(res => res.json())
         .then(data => setClient(data.data))
