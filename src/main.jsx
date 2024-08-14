@@ -12,6 +12,7 @@ import TruckChalan from './TruckChalan/TruckChalan';
 import ShowClients from './CompoClient/ShowClients';
 import UpdateClient from './CompoClient/UpdateClient';
 import FinalTruckChalan from './TruckChalan/ShowChalan/FinalTruckChalan';
+import TruckReport from './TruckReport/TruckReport';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       {
         path: "/UpdateClient/:id",
         element: <UpdateClient></UpdateClient>
-      },{
+      },
+      {
         path: "/truckChalanEntry",
         element: <TruckChalan></TruckChalan>
       },
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         path: "/finalChalan/:id",
         element: <FinalTruckChalan></FinalTruckChalan>,
         loader: async ({params})=> {return fetch(`http://localhost:3001/truck/${params.id}`)}
+      },
+      {
+        path: "/truckReport",
+        element: <TruckReport></TruckReport>
       }
     ]
   },

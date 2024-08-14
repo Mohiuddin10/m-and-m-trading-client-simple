@@ -12,7 +12,7 @@ const Nav = () => {
             <details>
                 <summary>Reports</summary>
                 <ul className="p-2">
-                    <li><a>Client Report</a></li>
+                    <li><Link to="/truckReport"><a>Client Report</a></Link></li>
                     <li><a>Date Delivery</a></li>
                 </ul>
             </details>
