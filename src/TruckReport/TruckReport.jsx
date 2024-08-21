@@ -12,7 +12,7 @@ const TruckReport = () => {
 
     const handleClientSearch = (e) => {
         e.preventDefault();
-        const clientName = e.target.value;
+        const clientName = e.target.clientName.value;
         const selectedClient = clients.find(client => client.name == clientName);
         setSelectedClient(selectedClient)
 
