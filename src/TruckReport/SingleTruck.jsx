@@ -1,16 +1,23 @@
 
 const SingleTruck = (props) => {
-    console.log(props);
+    console.log(props.sl);
+    const { driverPhone, createdAt, itemName, truckNumber, weight, comments, fare, advance, bags} = props.singleTruck;
+    const dateObject = new Date(createdAt);
+    const formattedDate = dateObject.toDateString();
     return (
             <tbody>
             <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Littel, Schaden and Vandervort</td>
-                <td>Canada</td>
-                <td>12/16/2020</td>
-                <td>Blue</td>
+                <th>{props.sl}</th>
+                <td>{formattedDate}</td>
+                <td>{truckNumber}</td>
+                <td>{driverPhone}</td>
+                <td>{itemName}</td>
+                <td>{bags ? bags : ""}</td>
+                <td>{weight}</td>
+                <td>{fare}</td>
+                <td>{advance}</td>
+                <td>{fare - advance}</td>
+                <td>{comments}</td>
             </tr>
             </tbody>
     );

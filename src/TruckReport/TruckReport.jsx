@@ -4,6 +4,7 @@ import AllReport from "./AllReport";
 const TruckReport = () => {
     const [clients, setClients] = useState([])
     const [selectedClient, setSelectedClient] = useState([])
+    const [selectedDate, setSelectedDate] = useState(null);
     useEffect(() => {
         fetch("http://localhost:3001/client")
             .then(res => res.json())
@@ -16,7 +17,13 @@ const TruckReport = () => {
         const selectedClient = clients.find(client => client.name == clientName);
         setSelectedClient(selectedClient)
 
+        const date = e.target.date.value;
+        const d = new Date(date);
+        const formattedDate = d.toDateString();
+        setSelectedDate(formattedDate);
     }
+
+
     return (
         <div>
             <form action="" onSubmit={handleClientSearch}>
@@ -26,10 +33,11 @@ const TruckReport = () => {
                         clients.map(client => <option key={client._id}>{client?.name}</option>)
                     }
                 </select>
-                <input type="submit" value="Done" />
+                <input type="date" name="date" id="date" />
+                <button type="submit" className="btn btn-wide">Done</button>
             </form>
             <div className="">
-                <AllReport selectedClient={selectedClient}></AllReport>
+                <AllReport selectedClient={selectedClient} date={selectedDate}></AllReport>
             </div>
         </div>
     );
