@@ -4,12 +4,27 @@ import SingleTruck from "./SingleTruck";
 const AllReport = (props) => {
     console.log(props.selectedClient);
     const { _id } = props.selectedClient;
+    const date = props.date;
+    console.log(date);
     const [truckData, setTruckData] = useState([])
     useEffect(() => {
         fetch(`http://localhost:3001/report/${_id}`)
             .then(res => res.json())
-            .then(data => setTruckData(data))
-    }, [_id])
+            .then(data => {
+                // setTruckData(data)
+                const newSort = data.filter(singleData => {
+                    const date1 = new Date(singleData.createdAt);
+                    const date2 = new Date(date)
+                    return (date1.toDateString() == date2.toDateString())
+                });
+                setTruckData(newSort)
+            })
+    }, [_id]);
+    // const newSort = truckData.filter(data => {
+    //     const date1 = new Date(data.createdAt);
+    //     const date2 = new Date(date)
+    //     return (date1.toDateString() == date2.toDateString())
+    // });
     console.log(truckData);
     return (
         <div>
