@@ -8,3 +8,4 @@
 // next task Work on footer ==> report ==> sorted report ==> add serial number
 
 
+// ===> working on delete truck data 
