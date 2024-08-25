@@ -18,6 +18,7 @@ const TruckChalan = () => {
         e.preventDefault();
         const form = e.target;
         const clientName = form.clientName.value;
+        const date = form.date.value;
         const truckNumber = form.truck_number.value;
         const driverName = form.driverName.value;
         const driverPhone = form.driverPhone.value;
@@ -34,6 +35,7 @@ const TruckChalan = () => {
         const clientID = client.find(singleClient => singleClient.name == clientName);
         const newTruckRecpt = {
             clientName: clientName,
+            date: date,
             clientID: clientID._id,
             truckNumber: truckNumber,
             driverName: driverName,
@@ -87,6 +89,15 @@ const TruckChalan = () => {
                                 </select>
                             </div>
 
+                            {/* Date manual  */}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Date</span>
+                                </label>
+                                <input type="date" name="date" className="input input-bordered" required />
+                            </div>
+
+
                             {/* Truck Number  */}
                             <div className="form-control">
                                 <label className="label">
@@ -94,6 +105,7 @@ const TruckChalan = () => {
                                 </label>
                                 <input type="text" name="truck_number" placeholder="Dm ta **-****" className="input input-bordered" required />
                             </div>
+
                             {/* Driver Details  */}
                             <div className="form-control">
                                 {/* Driver Name  */}

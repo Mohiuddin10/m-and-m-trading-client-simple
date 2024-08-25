@@ -1,8 +1,7 @@
 import toast, { Toaster } from "react-hot-toast";
 
 const SingleTruck = (props) => {
-    console.log(props.sl);
-    const { driverPhone, createdAt, itemName, truckNumber, weight, comments, fare, advance, bags, _id} = props.singleTruck;
+    const { driverPhone, createdAt, itemName, truckNumber, weight, comments, fare, advance, bags, _id } = props.singleTruck;
     const dateObject = new Date(createdAt);
     const formattedDate = dateObject.toDateString();
 
@@ -35,10 +34,10 @@ const SingleTruck = (props) => {
                         className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         <img
-                                className="h-10 w-10 rounded-full"
-                                src="../../public/icons8-close.gif"
-                                alt=""
-                            />
+                            className="h-10 w-10 rounded-full"
+                            src="../../public/icons8-close.gif"
+                            alt=""
+                        />
                     </button>
                 </div>
             </div>
@@ -53,20 +52,19 @@ const SingleTruck = (props) => {
 
 
 
-    const handleDelete = (id) => {
-        fetch(`http://localhost:3001/truck/${id}`, {
-            method: "Delete"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                data.success ? notify(data) : falseNotify(data)
-            })
-       
+    // const handleDelete = (id) => {
+    //     fetch(`http://localhost:3001/truck/${id}`, {
+    //         method: "Delete"
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             data.success ? notify(data) : falseNotify(data)
+    //         })
+    // }
 
-    }
     return (
-            <tbody>
+        <tbody>
             <tr>
                 <th>{props.sl}</th>
                 <td>{formattedDate}</td>
@@ -80,9 +78,9 @@ const SingleTruck = (props) => {
                 <td>{fare - advance}</td>
                 <td>{comments}</td>
                 <td><button className="mx-auto btn btn-primary">Update</button></td>
-                <td><button onClick={() => handleDelete(_id)} className="mx-auto btn btn-warning">Delete</button></td>
+                <td><button onClick={() => props.handleDelete(_id)} className="mx-auto btn btn-warning">Delete</button></td>
             </tr>
-            </tbody>
+        </tbody>
     );
 };
 

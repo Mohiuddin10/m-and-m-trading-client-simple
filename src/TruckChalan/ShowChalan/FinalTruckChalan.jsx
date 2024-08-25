@@ -1,25 +1,24 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Description from "./Description";
 import Party from "./Party";
 import TruckDetails from "./TruckDetails";
-import { useEffect, useState } from "react";
+
 
 
 
 const FinalTruckChalan = () => {
-    const truckID = useParams().id;
     const truckData = useLoaderData().data;
     console.log(truckData);
     
 
 
-    const { clientID, createdAt, comments, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance } = truckData;
+    const { clientID, date, createdAt, comments, itemName, truckNumber, driverPhone, driverName, weight, fare, netFare, bags, advance } = truckData;
     const truckDriverData = { truckNumber, driverName, driverPhone };
     const product = { itemName, weight, fare, netFare, bags, advance };
-    const dateObject = new Date(createdAt);
-    const formattedDate = dateObject.toDateString();
-    const formattedTime = dateObject.toLocaleTimeString();
-    console.log(formattedDate, formattedTime);
+    // const dateObject = new Date(createdAt);
+    // const formattedDate = dateObject.toDateString();
+    // const formattedTime = dateObject.toLocaleTimeString();
+    // console.log(formattedDate, formattedTime);
     return (
         <div>
             {/* header  */}
@@ -29,8 +28,7 @@ const FinalTruckChalan = () => {
                 <h1 className="text-xl text-green-900">Phone: 01711-264423</h1>
             </div>
             <div className="text-right mx-6">
-                <h4>Date: {formattedDate}</h4>
-                <h4>Time: {formattedTime}</h4>
+                <h4>Date: {date}</h4>
             </div>
             {/* Delivery party  */}
             <Party clientID={clientID}></Party>

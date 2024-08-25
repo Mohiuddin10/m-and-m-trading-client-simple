@@ -25,16 +25,16 @@ const TruckReport = () => {
 
 
     return (
-        <div>
-            <form action="" onSubmit={handleClientSearch}>
-                <select className="select select-bordered w-full max-w-xs" name="clientName" >
-                    <option disabled selected>Who shot first?</option>
+        <div className="">
+            <form className="text-center sm:flex-col md:flex-row align-middle justify-center items-center my-4" action="" onSubmit={handleClientSearch}>
+                <select className="select m-2 select-bordered w-full max-w-xs" name="clientName" >
+                    <option disabled selected>Client name</option>
                     {
                         clients.map(client => <option key={client._id}>{client?.name}</option>)
                     }
                 </select>
-                <input type="date" name="date" id="date" />
-                <button type="submit" className="btn btn-wide">Done</button>
+                <input className="rounded-lg p-2 m-2" type="date" name="date" id="date" />
+                <button type="submit" className="btn btn-wide m-2">Done</button>
             </form>
             <div className="">
                 <AllReport selectedClient={selectedClient} date={selectedDate}></AllReport>

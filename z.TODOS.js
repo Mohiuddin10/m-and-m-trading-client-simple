@@ -1,13 +1,7 @@
-// working on new data field Comments Special Notes  ===> Done
-// Create new field for comments   ==> Done
 // add footer that don't require any signature
-// find client information by name and show in final truck chalan     ===> Done
-// add field for date and time ====> Done
 
 
-// next task Work on footer ==> report ==> sorted report ==> add serial number
+// add serial number
 
 
-// ===> working on delete truck data ==> Done
-
-// add menual date in truck 
+// update truckdata

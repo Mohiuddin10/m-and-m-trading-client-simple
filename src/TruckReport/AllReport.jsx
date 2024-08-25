@@ -13,18 +13,27 @@ const AllReport = (props) => {
             .then(data => {
                 // setTruckData(data)
                 const newSort = data.filter(singleData => {
-                    const date1 = new Date(singleData.createdAt);
+                    const date1 = new Date(singleData.date);
                     const date2 = new Date(date)
                     return (date1.toDateString() == date2.toDateString())
                 });
                 setTruckData(newSort)
             })
     }, [_id]);
-    // const newSort = truckData.filter(data => {
-    //     const date1 = new Date(data.createdAt);
-    //     const date2 = new Date(date)
-    //     return (date1.toDateString() == date2.toDateString())
-    // });
+
+    const handleDelete = (id) => {
+        console.log(id);
+        fetch(`http://localhost:3001/truck/${id}`, {
+            method: "Delete"
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                const updateTruckData = truckData.filter(data => data._id !== id)
+                setTruckData(updateTruckData)
+            })
+    }
+   
     console.log(truckData);
     return (
         <div>
@@ -47,7 +56,10 @@ const AllReport = (props) => {
                     </thead>
 
                         {
-                            truckData.map(singleTruck => <SingleTruck key={_id} sl={truckData.indexOf(singleTruck)+1} singleTruck={singleTruck}></SingleTruck>)
+                            truckData.map(singleTruck => <SingleTruck key={_id}
+                                sl={truckData.indexOf(singleTruck)+1} 
+                                singleTruck={singleTruck}
+                                handleDelete={handleDelete}></SingleTruck>)
                         }
                 </table>
             </div>
