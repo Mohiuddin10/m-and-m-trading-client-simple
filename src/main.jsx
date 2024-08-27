@@ -13,6 +13,7 @@ import ShowClients from './CompoClient/ShowClients';
 import UpdateClient from './CompoClient/UpdateClient';
 import FinalTruckChalan from './TruckChalan/ShowChalan/FinalTruckChalan';
 import TruckReport from './TruckReport/TruckReport';
+import UpdateTruck from './TruckReport/UpdateTruck';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/truckReport",
         element: <TruckReport></TruckReport>
+      },
+      {
+        path: "/UpdateTruck/:id",
+        element: <UpdateTruck></UpdateTruck>
       }
     ]
   },

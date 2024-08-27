@@ -1,6 +1,8 @@
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 
 const SingleTruck = (props) => {
+    const navigate = useNavigate();
     const { driverPhone, createdAt, itemName, truckNumber, weight, comments, fare, advance, bags, _id } = props.singleTruck;
     const dateObject = new Date(createdAt);
     const formattedDate = dateObject.toDateString();
@@ -52,16 +54,10 @@ const SingleTruck = (props) => {
 
 
 
-    // const handleDelete = (id) => {
-    //     fetch(`http://localhost:3001/truck/${id}`, {
-    //         method: "Delete"
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             data.success ? notify(data) : falseNotify(data)
-    //         })
-    // }
+    const handleUpdate = (id) => {
+        console.log(id);
+        navigate(`/UpdateTruck/${id}`, {state: {data: id}});
+    }
 
     return (
         <tbody>
@@ -77,7 +73,7 @@ const SingleTruck = (props) => {
                 <td>{advance}</td>
                 <td>{fare - advance}</td>
                 <td>{comments}</td>
-                <td><button className="mx-auto btn btn-primary">Update</button></td>
+                <td><button className="mx-auto btn btn-primary" onClick={() => handleUpdate(_id)}>Update</button></td>
                 <td><button onClick={() => props.handleDelete(_id)} className="mx-auto btn btn-warning">Delete</button></td>
             </tr>
         </tbody>

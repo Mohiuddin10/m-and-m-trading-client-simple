@@ -39,6 +39,7 @@ const TruckReport = () => {
             <div className="">
                 <AllReport selectedClient={selectedClient} date={selectedDate}></AllReport>
             </div>
+            <h2 className="text-center m-8">This is auto generated report and doesn't require any signature</h2>
         </div>
     );
 };
