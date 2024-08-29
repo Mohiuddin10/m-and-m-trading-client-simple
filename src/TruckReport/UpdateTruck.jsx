@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const UpdateTruck = () => {
+    const navigate = useNavigate();
     const params = useParams();
     const [truckData, setTruckData] = useState([])
     useEffect(() => {
@@ -9,7 +11,51 @@ const UpdateTruck = () => {
             .then(res => res.json())
             .then(data => setTruckData(data.data))
     }, [])
-    console.log(truckData);
+    
+    const handleUpdateTruck = async (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const clientName = form.clientName.value;
+        const date = form.date.value;
+        const truckNumber = form.truck_number.value;
+        const driverName = form.driverName.value;
+        const driverPhone = form.driverPhone.value;
+        const itemName = form.itemName.value;
+        const weight = form.weight.value;
+        const bags = form.bags.value;
+        const silNumber = form.silNumber.value;
+        const fare = form.fare.value;
+        const advance = form.advance.value;
+        const comment = form.comment.value;
+
+
+        // track ClientID 
+        const updatedTruckRecpt = {
+            clientName: clientName,
+            date: date,
+            clientID: truckData.clientID,
+            truckNumber: truckNumber,
+            driverName: driverName,
+            driverPhone: driverPhone,
+            itemName: itemName,
+            weight: weight,
+            bags: bags,
+            sil: silNumber,
+            fare: fare,
+            advance: advance,
+            comments: comment
+        }
+        await fetch(`http://localhost:3001/truck/${params.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedTruckRecpt)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            navigate(`/truckReport`);
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -19,7 +65,7 @@ const UpdateTruck = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleUpdateTruck} className="card-body">
                             {/* Client Details  */}
                             <div className="form-control">
                                 <select name="clientName" className="select w-full max-w-xs">
@@ -74,7 +120,7 @@ const UpdateTruck = () => {
                                     <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" defaultValue={truckData.itemName}/>
                                     <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" defaultValue={truckData.weight}/>
                                     <input type="number" placeholder="Bags" name="bags" className="input input-bordered" defaultValue={truckData.bags}/>
-                                    <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" />
+                                    <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" defaultValue={truckData.sil}/>
                                 </div>
 
                                 {/* Fare Details  */}

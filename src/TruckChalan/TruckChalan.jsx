@@ -43,7 +43,7 @@ const TruckChalan = () => {
             itemName: itemName,
             weight: weight,
             bags: bags,
-            silNumber: silNumber,
+            sil: silNumber,
             fare: fare,
             advance: advance,
             comments: comment
