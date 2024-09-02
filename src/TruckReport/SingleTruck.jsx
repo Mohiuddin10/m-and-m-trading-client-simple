@@ -59,12 +59,16 @@ const SingleTruck = (props) => {
         navigate(`/UpdateTruck/${id}`, {state: {data: id}});
     }
 
+    const handleShowTruckData = (id) => {
+        navigate(`/finalChalan/${id}`)
+    }
+
     return (
         <tbody>
             <tr>
                 <th>{props.sl}</th>
                 <td>{formattedDate}</td>
-                <td>{truckNumber}</td>
+                <td onClick={() => handleShowTruckData(_id)}> <button>{truckNumber}</button> </td>
                 <td>{driverPhone}</td>
                 <td>{itemName}</td>
                 <td>{bags ? bags : ""}</td>
