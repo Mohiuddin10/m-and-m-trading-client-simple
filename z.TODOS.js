@@ -6,4 +6,4 @@
 
 // update truckdata ===> Done
 
-// view chalan 
+// view chalan ===> Done
