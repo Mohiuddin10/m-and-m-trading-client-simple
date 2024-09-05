@@ -1,0 +1,60 @@
+.hero-container {
+    background-image: url('/public/Swiper/chuttersnap-fN603qcEA7g-unsplash.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gradient-text {
+    font-size: 8rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ffc3a0, #ffafbd);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  
+  .hero-content {
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-button {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero-button:hover {
+    background-color: #ff6347;
+  }
+  
