@@ -1,9 +1,6 @@
-// add footer that don't require any signature
+// After add new client go to show add client list 
+        // ==> Already done the same thing on update clients 
 
+// ALIGN LOGO IN right position
 
-// add serial number
-
-
-// update truckdata ===> Done
-
-// view chalan ===> Done
+// problem in after entry first truck ==> get an error but solve when refresh the page again

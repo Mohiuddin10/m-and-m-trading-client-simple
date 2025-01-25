@@ -47,7 +47,7 @@ const Nav = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost"><img src='/public/MMlogo.png' className='w-24 h-24'></img></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

@@ -42,10 +42,10 @@ const ShowClients = () => {
                         className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         <img
-                                className="h-10 w-10 rounded-full"
-                                src="../../public/icons8-close.gif"
-                                alt=""
-                            />
+                            className="h-10 w-10 rounded-full"
+                            src="../../public/icons8-close.gif"
+                            alt=""
+                        />
                     </button>
                 </div>
             </div>
@@ -60,7 +60,7 @@ const ShowClients = () => {
 
     const handleUpdate = (id) => {
         console.log(id);
-        navigate(`/UpdateClient/${id}`, {state: {data: id}});
+        navigate(`/UpdateClient/${id}`, { state: { data: id } });
     }
 
     const handleDelete = (id) => {
@@ -74,7 +74,7 @@ const ShowClients = () => {
                 const updateClients = clients.filter((client) => client._id != id)
                 setClients(updateClients);
             })
-       
+
 
     }
 
@@ -82,7 +82,7 @@ const ShowClients = () => {
 
     return (
         <div>
-            <h3>Hello from show all clients</h3>
+            <h3 className="text-center font-bold text-4xl">Active Clients</h3>
             {
                 <Toaster
                     position="top-center"
