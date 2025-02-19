@@ -6,14 +6,15 @@ import toast, { Toaster } from "react-hot-toast";
 const ShowClients = () => {
     const [clients, setClients] = useState([]);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         fetch("http://localhost:3001/client")
             .then(res => res.json())
             .then(data => setClients(data.data))
     }, [])
-    console.log(clients);
-
+    
+    
     const notify = (data) => {
         toast.custom((t) => (
             <div
@@ -57,6 +58,8 @@ const ShowClients = () => {
         toast.error(`${data.message}`)
 
     };
+
+    const EmptyClientNotify = () => toast("No client found!");
 
     const handleUpdate = (id) => {
         console.log(id);
@@ -103,8 +106,24 @@ const ShowClients = () => {
                     </thead>
                     <tbody>
                         {/* row 1 */}
+                        {clients && clients.length > 0 ? (
+                            clients.map((client) =>
+                                <tr key={client._id}>
+                                    <th>{clients.indexOf(client) + 1}</th>
+                                    <td>{client.name}</td>
+                                    <td>{client.address}</td>
+                                    <td>0{client.phone}</td>
+                                    <td className="">
+                                        <button onClick={() => handleUpdate(client._id)} className="me-4 btn btn-primary">Update</button>
+                                        <button onClick={() => handleDelete(client._id)} className="btn btn-warning">Delete</button>
+                                    </td>
+                                </tr>
+                        )) : (
+                        
+                        <h2 className="text-center font-bold text-3xl just" onClick={EmptyClientNotify()}>No data</h2>
 
-                        {
+                        )}
+                        {/* {
                             clients.map((client) =>
                                 <tr key={client._id}>
                                     <th>{clients.indexOf(client) + 1}</th>
@@ -116,7 +135,7 @@ const ShowClients = () => {
                                         <button onClick={() => handleDelete(client._id)} className="btn btn-warning">Delete</button>
                                     </td>
                                 </tr>)
-                        }
+                        } */}
                     </tbody>
                 </table>
             </div>
