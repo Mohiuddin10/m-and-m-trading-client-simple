@@ -8,7 +8,7 @@ const AllReport = (props) => {
     console.log(date);
     const [truckData, setTruckData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3001/report/${_id}`)
+        fetch(`https://m-and-m-trading-server.onrender.com/report/${_id}`)
             .then(res => res.json())
             .then(data => {
                 // setTruckData(data)
@@ -23,7 +23,7 @@ const AllReport = (props) => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:3001/truck/${id}`, {
+        fetch(`https://m-and-m-trading-server.onrender.com/truck/${id}`, {
             method: "Delete"
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const AllReport = (props) => {
                 setTruckData(updateTruckData)
             })
     }
-   
+
     console.log(truckData);
     return (
         <div>
@@ -55,12 +55,12 @@ const AllReport = (props) => {
                         </tr>
                     </thead>
 
-                        {
-                            truckData.map(singleTruck => <SingleTruck key={_id}
-                                sl={truckData.indexOf(singleTruck)+1} 
-                                singleTruck={singleTruck}
-                                handleDelete={handleDelete}></SingleTruck>)
-                        }
+                    {
+                        truckData.map(singleTruck => <SingleTruck key={_id}
+                            sl={truckData.indexOf(singleTruck) + 1}
+                            singleTruck={singleTruck}
+                            handleDelete={handleDelete}></SingleTruck>)
+                    }
                 </table>
             </div>
 

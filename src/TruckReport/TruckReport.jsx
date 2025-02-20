@@ -6,7 +6,7 @@ const TruckReport = () => {
     const [selectedClient, setSelectedClient] = useState([])
     const [selectedDate, setSelectedDate] = useState(null);
     useEffect(() => {
-        fetch("http://localhost:3001/client")
+        fetch("https://m-and-m-trading-server.onrender.com/client")
             .then(res => res.json())
             .then(data => setClients(data.data))
     }, [])

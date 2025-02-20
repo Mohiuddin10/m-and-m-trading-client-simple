@@ -33,10 +33,10 @@ const Client = () => {
                         className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         <img
-                                className="h-10 w-10 rounded-full"
-                                src="../../public/icons8-close (new).gif"
-                                alt=""
-                            />
+                            className="h-10 w-10 rounded-full"
+                            src="../../public/icons8-close (new).gif"
+                            alt=""
+                        />
                     </button>
                 </div>
             </div>
@@ -71,10 +71,10 @@ const Client = () => {
                         className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
                         <img
-                                className="h-10 w-10 rounded-full"
-                                src="../../public/icons8-close (new).gif"
-                                alt=""
-                            />
+                            className="h-10 w-10 rounded-full"
+                            src="../../public/icons8-close (new).gif"
+                            alt=""
+                        />
                     </button>
                 </div>
             </div>
@@ -97,7 +97,7 @@ const Client = () => {
                 address: address,
                 phone: phone
             };
-            fetch("http://localhost:3001/client", {
+            fetch("https://m-and-m-trading-server.onrender.com/client", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

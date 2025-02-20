@@ -7,11 +7,11 @@ const UpdateTruck = () => {
     const params = useParams();
     const [truckData, setTruckData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3001/truck/${params.id}`)
+        fetch(`https://m-and-m-trading-server.onrender.com/truck/${params.id}`)
             .then(res => res.json())
             .then(data => setTruckData(data.data))
     }, [])
-    
+
     const handleUpdateTruck = async (e) => {
         e.preventDefault()
         const form = e.target;
@@ -45,7 +45,7 @@ const UpdateTruck = () => {
             advance: advance,
             comments: comment
         }
-        await fetch(`http://localhost:3001/truck/${params.id}`, {
+        await fetch(`https://m-and-m-trading-server.onrender.com/truck/${params.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -54,7 +54,7 @@ const UpdateTruck = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-            navigate(`/truckReport`);
+        navigate(`/truckReport`);
     }
     return (
         <div>
@@ -117,10 +117,10 @@ const UpdateTruck = () => {
                                     <label className="label">
                                         <span className="label-text">Product Description</span>
                                     </label>
-                                    <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" defaultValue={truckData.itemName}/>
-                                    <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" defaultValue={truckData.weight}/>
-                                    <input type="number" placeholder="Bags" name="bags" className="input input-bordered" defaultValue={truckData.bags}/>
-                                    <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" defaultValue={truckData.sil}/>
+                                    <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" defaultValue={truckData.itemName} />
+                                    <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" defaultValue={truckData.weight} />
+                                    <input type="number" placeholder="Bags" name="bags" className="input input-bordered" defaultValue={truckData.bags} />
+                                    <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" defaultValue={truckData.sil} />
                                 </div>
 
                                 {/* Fare Details  */}
@@ -128,8 +128,8 @@ const UpdateTruck = () => {
                                     <label className="label">
                                         <span className="label-text">Truck Fare</span>
                                     </label>
-                                    <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required defaultValue={truckData.fare}/>
-                                    <input type="number" placeholder="Advance" name="advance" className="input input-bordered" defaultValue={truckData.advance}/>
+                                    <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required defaultValue={truckData.fare} />
+                                    <input type="number" placeholder="Advance" name="advance" className="input input-bordered" defaultValue={truckData.advance} />
                                 </div>
                                 {/* Comments & notes*/}
                                 <div className="">

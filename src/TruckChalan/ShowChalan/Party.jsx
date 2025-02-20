@@ -2,17 +2,17 @@ import { useEffect, useState } from "react";
 
 
 const Party = (params) => {
-    const [ client, setClient] = useState({});
+    const [client, setClient] = useState({});
     console.log(params);
     useEffect(() => {
         console.log(`${params.clientID}`);
-        fetch(`http://localhost:3001/client/${params.clientID}`)
-        .then(res => res.json())
-        .then(data => setClient(data.data))
-    },[])
-    
-   console.log(client);
- 
+        fetch(`https://m-and-m-trading-server.onrender.com/client/${params.clientID}`)
+            .then(res => res.json())
+            .then(data => setClient(data.data))
+    }, [])
+
+    console.log(client);
+
     return (
         <div className="m-5 p-6 border rounded-lg">
             <table className="table-auto border-separate border-spacing-2">

@@ -8,7 +8,7 @@ const TruckChalan = () => {
     // Working on load Clients 
     const [client, setClient] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3001/client")
+        fetch("https://m-and-m-trading-server.onrender.com/client")
             .then(res => res.json())
             .then(data => setClient(data.data))
     }, [])
@@ -49,7 +49,7 @@ const TruckChalan = () => {
             comments: comment
         }
         console.log(newTruckRecpt);
-        fetch("http://localhost:3001/truck", {
+        fetch("https://m-and-m-trading-server.onrender.com/truck", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

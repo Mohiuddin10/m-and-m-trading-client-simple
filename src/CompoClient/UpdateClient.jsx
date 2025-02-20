@@ -8,11 +8,11 @@ const UpdateClient = () => {
     const [client, setClient] = useState([]);
     const params = useParams();
     useEffect(() => {
-        fetch(`http://localhost:3001/client/${params.id}`)
+        fetch(`https://m-and-m-trading-server.onrender.com/client/${params.id}`)
             .then(res => res.json())
             .then(data => setClient(data.data))
     }, [])
-    const {name, address, phone} = client;
+    const { name, address, phone } = client;
     const notify = (message) => {
         toast.custom((t) => (
             <div
@@ -89,7 +89,7 @@ const UpdateClient = () => {
         ))
 
     };
-   
+
     const handleUpdateClient = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -106,7 +106,7 @@ const UpdateClient = () => {
                 phone: phone
             };
             console.log(newClient);
-            await fetch(`http://localhost:3001/client/${client._id}`, {
+            await fetch(`https://m-and-m-trading-server.onrender.com/client/${client._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -134,7 +134,7 @@ const UpdateClient = () => {
                         <div className="form-control">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Client Name:
-                                <input type="text" name="name" className="grow" defaultValue={name}/>
+                                <input type="text" name="name" className="grow" defaultValue={name} />
                             </label>
                         </div>
 

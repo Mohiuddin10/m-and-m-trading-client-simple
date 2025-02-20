@@ -2,7 +2,7 @@
 const ReportTruck = () => {
     const [truckData, settruckData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3001/truck/${id}`)
+        fetch(`https://m-and-m-trading-server.onrender.com/truck/${id}`)
             .then(res => res.json())
             .then(data => console.log(data))
     }, [])

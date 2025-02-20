@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/showClients",
         element: <ShowClients></ShowClients>
-        // loader: () => fetch("http://localhost:3001/client")
+        // loader: () => fetch("https://m-and-m-trading-server.onrender.com/client")
       },
       {
         path: "/UpdateClient/:id",
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/finalChalan/:id",
         element: <FinalTruckChalan></FinalTruckChalan>,
-        loader: async ({params})=> {return fetch(`http://localhost:3001/truck/${params.id}`)}
+        loader: async ({ params }) => { return fetch(`https://m-and-m-trading-server.onrender.com/truck/${params.id}`) }
       },
       {
         path: "/truckReport",

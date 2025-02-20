@@ -6,15 +6,15 @@ import toast, { Toaster } from "react-hot-toast";
 const ShowClients = () => {
     const [clients, setClients] = useState([]);
     const navigate = useNavigate();
-    
+
 
     useEffect(() => {
-        fetch("http://localhost:3001/client")
+        fetch("https://m-and-m-trading-server.onrender.com/client")
             .then(res => res.json())
             .then(data => setClients(data.data))
     }, [])
-    
-    
+
+
     const notify = (data) => {
         toast.custom((t) => (
             <div
@@ -67,7 +67,7 @@ const ShowClients = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:3001/client/${id}`, {
+        fetch(`https://m-and-m-trading-server.onrender.com/client/${id}`, {
             method: "Delete"
         })
             .then(res => res.json())
@@ -118,9 +118,9 @@ const ShowClients = () => {
                                         <button onClick={() => handleDelete(client._id)} className="btn btn-warning">Delete</button>
                                     </td>
                                 </tr>
-                        )) : (
-                        
-                        <h2 className="text-center font-bold text-3xl just" onClick={EmptyClientNotify()}>No data</h2>
+                            )) : (
+
+                            <h2 className="text-center font-bold text-3xl just" onClick={EmptyClientNotify()}>No data</h2>
 
                         )}
                         {/* {
