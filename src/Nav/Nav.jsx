@@ -47,7 +47,7 @@ const Nav = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost"><img src='/public/MMlogo.png' className='w-24 h-24'></img></a>
+                <a className="btn btn-ghost"><h1 className='text-3xl'>M & M Trading</h1></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
