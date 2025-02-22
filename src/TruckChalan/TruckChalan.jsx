@@ -68,7 +68,7 @@ const TruckChalan = () => {
 
 
             {/* Truck chalan entry  */}
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-base-200 ">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl text-gray-950 font-bold">Truck Data Entry</h1>
@@ -99,7 +99,7 @@ const TruckChalan = () => {
 
 
                             {/* Truck Number  */}
-                            <div className="form-control">
+                            <div className="form-control text-gray-700">
                                 <label className="label">
                                     <span className="label-text">Truck No:</span>
                                 </label>
@@ -107,7 +107,7 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Driver Details  */}
-                            <div className="form-control">
+                            <div className="form-control text-gray-700">
                                 {/* Driver Name  */}
                                 <div className="">
                                     <label className="label">
@@ -117,7 +117,7 @@ const TruckChalan = () => {
                                 </div>
 
                                 {/* Driver Phone  */}
-                                <div className="">
+                                <div className="text-gray-700">
                                     <label className="label">
                                         <span className="label-text">Driver Phone</span>
                                     </label>
@@ -127,7 +127,7 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Item Description  */}
-                            <div className="form-control">
+                            <div className="form-control text-gray-700">
                                 {/* Item Name  */}
                                 <div className="">
                                     <label className="label">
