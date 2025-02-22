@@ -94,7 +94,7 @@ const TruckChalan = () => {
                                 <label className="label">
                                     <span className="label-text">Date</span>
                                 </label>
-                                <input type="date" name="date" className="input input-bordered" required />
+                                <input type="date" name="date" className="input input-bordered text-black" required />
                             </div>
 
 
@@ -133,7 +133,7 @@ const TruckChalan = () => {
                                     <label className="label">
                                         <span className="label-text">Product Description</span>
                                     </label>
-                                    <div className="flex flex-col gap-6">
+                                    <div className="flex flex-col gap-6 text-gray-700">
                                         <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" />
                                         <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" />
                                         <input type="number" placeholder="Bags" name="bags" className="input input-bordered" />
@@ -146,13 +146,13 @@ const TruckChalan = () => {
                                     <label className="label">
                                         <span className="label-text">Truck Fare</span>
                                     </label>
-                                    <div className="flex flex-col gap-6">
+                                    <div className="flex flex-col gap-6 text-gray-700">
                                         <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required />
                                         <input type="number" placeholder="Advance" name="advance" className="input input-bordered" />
                                     </div>
                                 </div>
                                 {/* Comments & notes*/}
-                                <div className="">
+                                <div className="text-gray-700">
                                     <label className="label">
                                         <span className="label-text">Comments & Notes</span>
                                     </label>
