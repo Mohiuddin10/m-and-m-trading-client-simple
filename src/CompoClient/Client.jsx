@@ -116,29 +116,29 @@ const Client = () => {
         <div className="hero px-0 md:p-5 md:min-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-xl md:text-5xl font-bold">Record new client</h1>
+                    <h1 className="text-md lg:text-5xl font-bold text-[#ff7f50]">Record new client</h1>
                 </div>
                 <div className="card md:shrink-0 md:w-full md:max-w-sm md:shadow-2xl bg-base-100">
-                    <form onSubmit={handleClient} className="">
+                    <form onSubmit={handleClient} className="flex-col p-4">
                         {/* Client Name */}
-                        <div className="form-control">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control my-2">
+                            <label className="input input-bordered md:flex md:items-center md:gap-2 text-gray-600">
                                 Client Name:
                                 <input type="text" name="name" className="grow" placeholder="M & M Trading" />
                             </label>
                         </div>
 
                         {/* Client Address */}
-                        <div className="form-control">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control my-2">
+                            <label className="input input-bordered md:flex md:items-center md:gap-2 text-gray-600">
                                 Address:
                                 <input type="text" name="address" className="grow" placeholder="172, Khatungonj. Chattogram" />
                             </label>
                         </div>
 
                         {/* Client Phone */}
-                        <div className="form-control">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control my-2">
+                            <label className="input input-bordered md:flex md:items-center md:gap-2 text-gray-600">
                                 Phone: +880
                                 <input type="tel" name="phone" className="grow" placeholder="1711******" />
                             </label>

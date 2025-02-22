@@ -96,11 +96,11 @@ const ShowClients = () => {
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>SL no.</th>
+                        <tr className="">
+                            <th className="sm:hidden md:block">SL no.</th>
                             <th>Name</th>
                             <th>Address</th>
-                            <th>Phone</th>
+                            <th className="text-center">Phone</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -108,14 +108,14 @@ const ShowClients = () => {
                         {/* row 1 */}
                         {clients && clients.length > 0 ? (
                             clients.map((client) =>
-                                <tr key={client._id}>
-                                    <th>{clients.indexOf(client) + 1}</th>
+                                <tr className="h-36 lg:h-16 border-gray-500" key={client._id}>
+                                    <th className="sm:hidden md:block">{clients.indexOf(client) + 1}</th>
                                     <td>{client.name}</td>
                                     <td>{client.address}</td>
                                     <td>0{client.phone}</td>
-                                    <td className="">
-                                        <button onClick={() => handleUpdate(client._id)} className="me-4 btn btn-primary">Update</button>
-                                        <button onClick={() => handleDelete(client._id)} className="btn btn-warning">Delete</button>
+                                    <td className="p-0 sm:h-full sm:w-1/4">
+                                        <button onClick={() => handleUpdate(client._id)} className="btn my-2 mx-2 btn-primary">Update</button>
+                                        <button onClick={() => handleDelete(client._id)} className="btn my-2 mx-2 btn-warning">Delete</button>
                                     </td>
                                 </tr>
                             )) : (

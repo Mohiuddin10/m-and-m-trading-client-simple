@@ -71,14 +71,14 @@ const TruckChalan = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Truck Data Entry</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <h1 className="text-5xl text-gray-950 font-bold">Truck Data Entry</h1>
+                        <p className="py-6 text-gray-600">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handletruckEntry} className="card-body">
                             {/* Client Details  */}
                             <div className="form-control">
-                                <select name="clientName" className="select w-full max-w-xs">
+                                <select name="clientName" className="select w-full max-w-xs text-gray-800">
                                     <option disabled selected>Client Name</option>
                                     {
                                         client.map(singleClient => <option key={singleClient._id}
@@ -133,10 +133,12 @@ const TruckChalan = () => {
                                     <label className="label">
                                         <span className="label-text">Product Description</span>
                                     </label>
-                                    <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" />
-                                    <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" />
-                                    <input type="number" placeholder="Bags" name="bags" className="input input-bordered" />
-                                    <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" />
+                                    <div className="flex flex-col gap-6">
+                                        <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" />
+                                        <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" />
+                                        <input type="number" placeholder="Bags" name="bags" className="input input-bordered" />
+                                        <input type="text" placeholder="Sil Number" name="silNumber" className="input input-bordered" />
+                                    </div>
                                 </div>
 
                                 {/* Fare Details  */}
@@ -144,8 +146,10 @@ const TruckChalan = () => {
                                     <label className="label">
                                         <span className="label-text">Truck Fare</span>
                                     </label>
-                                    <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required />
-                                    <input type="number" placeholder="Advance" name="advance" className="input input-bordered" />
+                                    <div className="flex flex-col gap-6">
+                                        <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required />
+                                        <input type="number" placeholder="Advance" name="advance" className="input input-bordered" />
+                                    </div>
                                 </div>
                                 {/* Comments & notes*/}
                                 <div className="">

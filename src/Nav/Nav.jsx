@@ -8,6 +8,7 @@ const Nav = () => {
         <li><Link to="/client"><a>Add Client</a></Link></li>
         <li><Link to="/truckChalanEntry"><a>Chalan Entry</a></Link></li>
         <li><Link to="/truckChalan"><a>Truck Chalan</a></Link></li>
+        <li><Link to="/truckReport"><a>Client Report</a></Link></li>
         <li>
             <details>
                 <summary>Reports</summary>
@@ -47,7 +48,7 @@ const Nav = () => {
 
                     </ul>
                 </div>
-                <a className="btn btn-ghost"><h1 className='text-3xl'>M & M Trading</h1></a>
+                <a className="btn btn-ghost"><Link to="/" ><h1 className='text-3xl'>M & M Trading</h1></Link></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
