@@ -18,6 +18,7 @@ const AllReport = (props) => {
                     return (date1.toDateString() == date2.toDateString())
                 });
                 setTruckData(newSort)
+
             })
     }, [_id]);
 

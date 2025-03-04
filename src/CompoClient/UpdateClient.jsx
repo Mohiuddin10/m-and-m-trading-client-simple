@@ -131,24 +131,24 @@ const UpdateClient = () => {
                 <div className="card md:shrink-0 md:w-full md:shadow-2xl bg-base-100">
                     <form onSubmit={handleUpdateClient} className="mx-auto my-auto mx-4 my-10 grid grid-rows-4">
                         {/* Client Name */}
-                        <div className="form-control text-gray-800">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control text-gray-800 my-auto">
+                            <label className="input input-bordered md:flex md:items-center md:gap-2 content-center">
                                 Client Name:
                                 <input type="text" name="name" className="grow" defaultValue={name} />
                             </label>
                         </div>
 
                         {/* Client Address */}
-                        <div className="form-control text-gray-800">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control text-gray-800 my-auto">
+                            <label className="content-center input input-bordered md:flex md:items-center md:gap-2">
                                 Address:
                                 <input type="text" name="address" className="grow" defaultValue={address} />
                             </label>
                         </div>
 
                         {/* Client Phone */}
-                        <div className="form-control text-gray-800">
-                            <label className="input input-bordered md:flex md:items-center md:gap-2">
+                        <div className="form-control text-gray-800 my-auto">
+                            <label className="input input-bordered md:flex md:items-center md:gap-2 content-center">
                                 Phone: +880
                                 <input type="tel" name="phone" className="grow" defaultValue={phone} />
                             </label>

@@ -8,3 +8,6 @@
 
 // try to make good responsive for mobile => almost done
 // add authentication like firebase and jwt
+
+
+// update client text middle
