@@ -123,15 +123,15 @@ const UpdateClient = () => {
 
     }
     return (
-        <div className="hero px-0 md:p-5 md:min-h-screen bg-base-200">
+        <div className="hero px-0 md:p-5 md:max-h-screen bg-base-200">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-xl md:text-5xl font-bold">Update client</h1>
+                    <h1 className="sm:text-xl md:text-5xl text-orange-800 font-bold">Update client</h1>
                 </div>
-                <div className="card md:shrink-0 md:w-full md:max-w-sm md:shadow-2xl bg-base-100">
-                    <form onSubmit={handleUpdateClient} className="">
+                <div className="card md:shrink-0 md:w-full md:shadow-2xl bg-base-100">
+                    <form onSubmit={handleUpdateClient} className="mx-auto my-auto mx-4 my-10 grid grid-rows-4">
                         {/* Client Name */}
-                        <div className="form-control">
+                        <div className="form-control text-gray-800">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Client Name:
                                 <input type="text" name="name" className="grow" defaultValue={name} />
@@ -139,7 +139,7 @@ const UpdateClient = () => {
                         </div>
 
                         {/* Client Address */}
-                        <div className="form-control">
+                        <div className="form-control text-gray-800">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Address:
                                 <input type="text" name="address" className="grow" defaultValue={address} />
@@ -147,7 +147,7 @@ const UpdateClient = () => {
                         </div>
 
                         {/* Client Phone */}
-                        <div className="form-control">
+                        <div className="form-control text-gray-800">
                             <label className="input input-bordered md:flex md:items-center md:gap-2">
                                 Phone: +880
                                 <input type="tel" name="phone" className="grow" defaultValue={phone} />

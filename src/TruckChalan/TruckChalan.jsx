@@ -68,7 +68,7 @@ const TruckChalan = () => {
 
 
             {/* Truck chalan entry  */}
-            <div className="hero min-h-screen bg-base-200 ">
+            <div className="hero min-h-screen bg-base-200 text-gray-800">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl text-gray-950 font-bold">Truck Data Entry</h1>
