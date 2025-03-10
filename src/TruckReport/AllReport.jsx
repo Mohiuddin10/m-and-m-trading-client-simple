@@ -12,6 +12,7 @@ const AllReport = (props) => {
             .then(res => res.json())
             .then(data => {
                 // setTruckData(data)
+                
                 const newSort = data.filter(singleData => {
                     const date1 = new Date(singleData.date);
                     const date2 = new Date(date)

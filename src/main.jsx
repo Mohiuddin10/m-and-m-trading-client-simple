@@ -14,6 +14,12 @@ import UpdateClient from './CompoClient/UpdateClient';
 import FinalTruckChalan from './TruckChalan/ShowChalan/FinalTruckChalan';
 import TruckReport from './TruckReport/TruckReport';
 import UpdateTruck from './TruckReport/UpdateTruck';
+import Login from './authentication/Login';
+import Register from './authentication/Register';
+import AuthProvider from './AuthProvider/AuthProvider';
+import About from './About/About';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +29,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/about",
+        element: <ProtectedRoute><About></About></ProtectedRoute>
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
       {
         path: "/client",
@@ -60,6 +78,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
