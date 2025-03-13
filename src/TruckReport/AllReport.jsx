@@ -7,12 +7,12 @@ const AllReport = (props) => {
     const date = props.date;
     console.log(date);
     const [truckData, setTruckData] = useState([])
+
     useEffect(() => {
         fetch(`https://m-and-m-trading-server.onrender.com/report/${_id}`)
             .then(res => res.json())
             .then(data => {
                 // setTruckData(data)
-                
                 const newSort = data.filter(singleData => {
                     const date1 = new Date(singleData.date);
                     const date2 = new Date(date)
@@ -37,6 +37,9 @@ const AllReport = (props) => {
     }
 
     console.log(truckData);
+    let totalWeight = 0;
+    truckData.map(sData => totalWeight = totalWeight + sData.weight)
+    console.log(totalWeight);
     return (
         <div>
             <div className="overflow-x-auto">
@@ -63,6 +66,21 @@ const AllReport = (props) => {
                             singleTruck={singleTruck}
                             handleDelete={handleDelete}></SingleTruck>)
                     }
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th className="text-xl font-bold">Total</th>
+                            <th></th>
+                            <th className="text-xl font-bold">{totalWeight}</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
                 </table>
             </div>
 

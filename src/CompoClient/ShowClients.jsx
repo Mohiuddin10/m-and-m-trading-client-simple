@@ -9,9 +9,26 @@ const ShowClients = () => {
 
 
     useEffect(() => {
-        fetch("https://m-and-m-trading-server.onrender.com/client")
-            .then(res => res.json())
-            .then(data => setClients(data.data))
+
+        const fetchClients = async () => {
+            try {
+                const response = await fetch("https://m-and-m-trading-server.onrender.com/client");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+                const result = await response.json();
+                console.log(result);
+                setClients(result.data);
+            } catch (err) {
+                console.log(err)
+            }
+
+
+            // fetch("https://m-and-m-trading-server.onrender.com/client")
+            //     .then(res => res.json())
+            //     .then(data => setClients(data.data))
+        }
+        fetchClients();
     }, [])
 
 
@@ -120,7 +137,7 @@ const ShowClients = () => {
                                 </tr>
                             )) : (
 
-                            <h2 className="text-center font-bold text-3xl just" onClick={EmptyClientNotify()}>No data</h2>
+                            <h2 className="text-center font-bold text-3xl just" onClick={() => EmptyClientNotify()}>No data</h2>
 
                         )}
                         {/* {

@@ -44,33 +44,33 @@ const router = createBrowserRouter([
       },
       {
         path: "/client",
-        element: <Client></Client>
+        element: <ProtectedRoute><Client></Client></ProtectedRoute>
       },
       {
         path: "/showClients",
-        element: <ShowClients></ShowClients>
+        element: <ProtectedRoute><ShowClients></ShowClients></ProtectedRoute>
         // loader: () => fetch("https://m-and-m-trading-server.onrender.com/client")
       },
       {
         path: "/UpdateClient/:id",
-        element: <UpdateClient></UpdateClient>
+        element: <ProtectedRoute><UpdateClient></UpdateClient></ProtectedRoute>
       },
       {
         path: "/truckChalanEntry",
-        element: <TruckChalan></TruckChalan>
+        element: <ProtectedRoute><TruckChalan></TruckChalan></ProtectedRoute>
       },
       {
         path: "/finalChalan/:id",
-        element: <FinalTruckChalan></FinalTruckChalan>,
+        element: <ProtectedRoute><FinalTruckChalan></FinalTruckChalan></ProtectedRoute>,
         loader: async ({ params }) => { return fetch(`https://m-and-m-trading-server.onrender.com/truck/${params.id}`) }
       },
       {
         path: "/truckReport",
-        element: <TruckReport></TruckReport>
+        element: <ProtectedRoute><TruckReport></TruckReport></ProtectedRoute>
       },
       {
         path: "/UpdateTruck/:id",
-        element: <UpdateTruck></UpdateTruck>
+        element: <ProtectedRoute><UpdateTruck></UpdateTruck></ProtectedRoute>
       }
     ]
   },
