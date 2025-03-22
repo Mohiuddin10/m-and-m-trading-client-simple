@@ -83,7 +83,7 @@ const TruckChalan = () => {
             })
     }
     return (
-        <div>
+        <div data-theme="light">
 
 
             {/* Truck chalan entry  */}
@@ -96,7 +96,10 @@ const TruckChalan = () => {
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handletruckEntry} className="card-body">
                             {/* Client Details  */}
-                            <div className="form-control">
+                            <div className="form-control flex gap-2">
+                                <label className="label">
+                                    <span className="label-text text-black">Client Name:</span>
+                                </label>
                                 <select name="clientName" className="select w-full max-w-xs text-gray-800">
                                     <option disabled selected>Client Name</option>
                                     {
@@ -109,36 +112,36 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Date manual  */}
-                            <div className="form-control">
+                            <div className="form-control form-control flex gap-2">
                                 <label className="label">
-                                    <span className="label-text">Date</span>
+                                    <span className="label-text text-black">Date:</span>
                                 </label>
                                 <input type="date" name="date" className="input input-bordered text-black" required />
                             </div>
 
 
                             {/* Truck Number  */}
-                            <div className="form-control text-gray-700">
+                            <div className="form-control flex gap-2">
                                 <label className="label">
-                                    <span className="label-text">Truck No:</span>
+                                    <span className="label-text text-black">Truck No:</span>
                                 </label>
                                 <input type="text" name="truck_number" placeholder="Dm ta **-****" className="input input-bordered" required />
                             </div>
 
                             {/* Driver Details  */}
-                            <div className="form-control text-gray-700">
+                            <div className="form-control">
                                 {/* Driver Name  */}
-                                <div className="">
+                                <div className="flex gap-2">
                                     <label className="label">
-                                        <span className="label-text">Driver Name</span>
+                                        <span className="label-text text-black">Driver Name:</span>
                                     </label>
                                     <input type="text" placeholder="Driver Name" name="driverName" className="input input-bordered" />
                                 </div>
 
                                 {/* Driver Phone  */}
-                                <div className="text-gray-700">
+                                <div className="flex gap-2">
                                     <label className="label">
-                                        <span className="label-text">Driver Phone</span>
+                                        <span className="label-text text-black">Driver Phone:</span>
                                     </label>
                                     <input type="tel" placeholder="Driver Phone" name="driverPhone" className="input input-bordered" required />
                                 </div>
@@ -146,13 +149,14 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Item Description  */}
-                            <div className="form-control text-gray-700">
+                            <div className="form-control border flex flex-col gap-4">
                                 {/* Item Name  */}
-                                <div className="">
-                                    <label className="label">
-                                        <span className="label-text">Product Description</span>
-                                    </label>
-                                    <div className="flex flex-col gap-6 text-gray-700">
+                                <label className="label bg-red-100 w-11/12 rounded-xl mx-auto p-2">
+                                    <span className="label-text text-black mx-auto">Product Description:</span>
+                                </label>
+                                <div className="flex gap-2">
+
+                                    <div className="flex flex-col w-11/12 mx-auto gap-4 text-gray-700">
                                         <input type="text" placeholder="Product Name" name="itemName" className="input input-bordered" />
                                         <input type="number" placeholder="Product Weight" name="weight" className="input input-bordered" />
                                         <input type="number" placeholder="Bags" name="bags" className="input input-bordered" />
