@@ -112,7 +112,7 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Date manual  */}
-                            <div className="form-control form-control flex gap-2">
+                            <div className="form-control flex gap-2">
                                 <label className="label">
                                     <span className="label-text text-black">Date:</span>
                                 </label>
@@ -149,7 +149,7 @@ const TruckChalan = () => {
                             </div>
 
                             {/* Item Description  */}
-                            <div className="form-control border flex flex-col gap-4">
+                            <div className="form-control border flex flex-col gap-4 p-2 bg-gray-100 rounded-lg">
                                 {/* Item Name  */}
                                 <label className="label bg-red-100 w-11/12 rounded-xl mx-auto p-2">
                                     <span className="label-text text-black mx-auto">Product Description:</span>
@@ -164,26 +164,28 @@ const TruckChalan = () => {
                                     </div>
                                 </div>
 
-                                {/* Fare Details  */}
-                                <div className="">
-                                    <label className="label">
-                                        <span className="label-text">Truck Fare</span>
-                                    </label>
-                                    <div className="flex flex-col gap-6 text-gray-700">
-                                        <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required />
-                                        <input type="number" placeholder="Advance" name="advance" className="input input-bordered" />
-                                    </div>
-                                </div>
-                                {/* Comments & notes*/}
-                                <div className="text-gray-700">
-                                    <label className="label">
-                                        <span className="label-text">Comments & Notes</span>
-                                    </label>
-                                    <textarea
-                                        placeholder="Write here..."
-                                        className="textarea textarea-bordered textarea-lg w-full max-w-xs" name="comment" ></textarea>
-                                </div>
 
+
+
+                            </div>
+                            {/* Fare Details  */}
+                            <div className="form-control flex gap-2 border bg-gray-100 p-4">
+                                <label className="label">
+                                    <span className="label-text text-black">Truck Fare:</span>
+                                </label>
+                                <div className="flex flex-col gap-6 text-gray-700">
+                                    <input type="number" placeholder="Truck fare" name="fare" className="input input-bordered" required />
+                                    <input type="number" placeholder="Advance" name="advance" className="input input-bordered" />
+                                </div>
+                            </div>
+                            {/* Comments & notes*/}
+                            <div className="form-control flex flex-col md:flex-row gap-2 border p-2 md:border-none">
+                                <label className="label">
+                                    <span className="label-text text-black">Comments & Notes</span>
+                                </label>
+                                <textarea
+                                    placeholder="Write here..."
+                                    className="textarea textarea-bordered textarea-lg w-full max-w-xs" name="comment" ></textarea>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register Truck</button>
