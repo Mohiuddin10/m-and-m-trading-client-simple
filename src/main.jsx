@@ -1,25 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css';
-import Root from './root/Root';
-import Home from './Home/Home';
-import Client from './CompoClient/Client';
-import TruckChalan from './TruckChalan/TruckChalan';
-import ShowClients from './CompoClient/ShowClients';
-import UpdateClient from './CompoClient/UpdateClient';
-import FinalTruckChalan from './TruckChalan/ShowChalan/FinalTruckChalan';
-import TruckReport from './TruckReport/TruckReport';
-import UpdateTruck from './TruckReport/UpdateTruck';
-import Login from './authentication/Login';
-import Register from './authentication/Register';
-import AuthProvider from './AuthProvider/AuthProvider';
-import About from './About/About';
-import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import Root from "./root/Root";
+import Home from "./Home/Home";
+import Client from "./CompoClient/Client";
+import TruckChalan from "./TruckChalan/TruckChalan";
+import ShowClients from "./CompoClient/ShowClients";
+import UpdateClient from "./CompoClient/UpdateClient";
+import FinalTruckChalan from "./TruckChalan/ShowChalan/FinalTruckChalan";
+import TruckReport from "./TruckReport/TruckReport";
+import UpdateTruck from "./TruckReport/UpdateTruck";
+import Login from "./authentication/Login";
+import Register from "./authentication/Register";
+import AuthProvider from "./AuthProvider/AuthProvider";
+import About from "./About/About";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,58 +24,93 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/about",
-        element: <ProtectedRoute><About></About></ProtectedRoute>
+        element: (
+          <ProtectedRoute>
+            <About></About>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/register",
-        element: <Register />
+        element: <Register />,
       },
       {
         path: "/client",
-        element: <ProtectedRoute><Client></Client></ProtectedRoute>
+        element: (
+          <ProtectedRoute>
+            <Client></Client>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/showClients",
-        element: <ProtectedRoute><ShowClients></ShowClients></ProtectedRoute>
-        // loader: () => fetch("https://m-and-m-trading-server.onrender.com/client")
+        element: (
+          <ProtectedRoute>
+            <ShowClients></ShowClients>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/UpdateClient/:id",
-        element: <ProtectedRoute><UpdateClient></UpdateClient></ProtectedRoute>
+        element: (
+          <ProtectedRoute>
+            <UpdateClient></UpdateClient>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/truckChalanEntry",
-        element: <ProtectedRoute><TruckChalan></TruckChalan></ProtectedRoute>
+        element: (
+          <ProtectedRoute>
+            <TruckChalan></TruckChalan>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/finalChalan/:id",
-        element: <ProtectedRoute><FinalTruckChalan></FinalTruckChalan></ProtectedRoute>,
-        loader: async ({ params }) => { return fetch(`https://m-and-m-trading-server.onrender.com/truck/${params.id}`) }
+        element: (
+          <ProtectedRoute>
+            <FinalTruckChalan></FinalTruckChalan>
+          </ProtectedRoute>
+        ),
+        loader: async ({ params }) => {
+          return fetch(
+            `https://m-and-m-trading-server.onrender.com/truck/${params.id}`
+          );
+        },
       },
       {
         path: "/truckReport",
-        element: <ProtectedRoute><TruckReport></TruckReport></ProtectedRoute>
+        element: (
+          <ProtectedRoute>
+            <TruckReport></TruckReport>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/UpdateTruck/:id",
-        element: <ProtectedRoute><UpdateTruck></UpdateTruck></ProtectedRoute>
-      }
-    ]
+        element: (
+          <ProtectedRoute>
+            <UpdateTruck></UpdateTruck>
+          </ProtectedRoute>
+        ),
+      },
+    ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
