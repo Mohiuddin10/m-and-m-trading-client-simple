@@ -7,10 +7,10 @@ const Nav = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = (e) => {
-    e.target.checked ? setTheme("synthwave") : setTheme("light");
+    e.target.checked ? setTheme("light") : setTheme("dark");
   };
 
   useEffect(() => {
